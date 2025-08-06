@@ -5,33 +5,50 @@
   <title>Anthony Jalkh — Notes de Mathématiques et Physique</title>
   <meta name="description" content="Notes rigoureuses en mathématiques et physique par Anthony Jalkh.">
   <meta name="author" content="Anthony Jalkh">
+
   <style>
-    body {
-      font-family: -apple-system, sans-serif;
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-    h1 {
-      font-size: 2em;
-    }
-    h2 {
-      margin-top: 2em;
-    }
-    a {
-      color: #1a0dab;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+  body {
+    font-family: -apple-system, sans-serif;
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+
+    background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fspace-background&psig=AOvVaw3b3BOMBtWfAGMEN6xd3s3F&ust=1754561583819000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJjlobP59Y4DFQAAAAAdAAAAABAn') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    margin-top: 2em;
+  }
+  a {
+    color: #90caf9; /* lighter blue for better contrast */
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #ccc;
+  }
+</style>
+  
 </head>
 <body>
 
