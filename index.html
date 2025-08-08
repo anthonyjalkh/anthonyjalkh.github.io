@@ -36,11 +36,19 @@
     margin-top: 2em;
   }
   a {
-    color: #90caf9; /* lighter blue for better contrast */
+    color: #6ECFF6; /* Matches star blue */
     text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
   }
+
   a:hover {
-    text-decoration: underline;
+    color: #FFFFFF; /* Turns white on hover */
+    text-shadow: 0 0 8px #6ECFF6; /* Soft glow matching stars */
+  }
+
+  .pdf-link::before {
+    content: "📄 "; /* Adds a PDF icon before link text */
   }
   footer {
     margin-top: 50px;
@@ -65,12 +73,12 @@
 
   <ul>
     <li>
-  <a href="[FRENCH] fourier_series_summary.pdf" target="_blank">[FRENCH] Série de Fourier — Résumé d’une page (PDF)</a><br>
+  <a href="[FRENCH] fourier_series_summary.pdf" target="_blank" class="pdf-link">[FRENCH] Série de Fourier — Résumé d’une page (PDF)</a><br>
   Résumé des séries de Fourier réelles, incluant les définitions des coefficients, les cas pairs/impairs et la formule de Parseval.
 </li>
 
     <li>
-  <a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">[FRENCH] Formes dérivées de la formule intégrale de Cauchy (PDF)</a><br>
+  <a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank" class="pdf-link">[FRENCH] Formes dérivées de la formule intégrale de Cauchy (PDF)</a><br>
       Dérivation, de deux façons, des formes dérivées de la formule intégrale de Cauchy. La deuxième méthode fait preuve de bien plus de rigueur.
 </li>
 
