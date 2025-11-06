@@ -72,6 +72,16 @@
   .pdf-link::before {
     content: "📄 "; /* Adds a PDF icon before link text */
   }
+
+    .book-list li {
+  transition: all 0.25s ease-in-out;
+}
+
+.book-list li:hover {
+  color: #fff6d1;
+  text-shadow: 0 0 10px rgba(255, 255, 180, 0.7);
+}
+    
   footer {
     margin-top: 50px;
     font-size: 0.9em;
@@ -208,13 +218,14 @@ a:hover {
   </ul>
 </section>
 -->
+    <!--
     <section id="books" style="margin-top: 40px;">
   <h2 style="color: #fff;">📚 Book Recommendations</h2>
   <div style="line-height: 1.7; font-size: 15px; color: #ddd;">
 
     <div style="margin-top: 18px;">
       <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">
-        🧮 Group Theory
+        🧩 Group Theory
       </h3>
       <ul style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
         <li><em>An Introduction to Tensors and Group Theory for Physicists</em> — <strong>Nadir Jeevanjee</strong></li>
@@ -232,7 +243,7 @@ a:hover {
 
     <div style="margin-top: 18px;">
       <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">
-        🪐 Graduate Quantum Mechanics
+        🎓 Graduate Quantum Mechanics
       </h3>
       <ul style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
         <li><em>Modern Quantum Mechanics</em> — <strong>J. J. Sakurai & Jim Napolitano</strong></li>
@@ -241,7 +252,7 @@ a:hover {
 
     <div style="margin-top: 18px;">
       <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">
-        💭 Philosophy
+        🏛️ Philosophy
       </h3>
       <ul style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
         <li><em>Essay on the Freedom of the Will</em> — <strong>Arthur Schopenhauer</strong></li>
@@ -274,7 +285,41 @@ a:hover {
   text-shadow: 0 0 8px rgba(158, 207, 255, 0.8);
 }
 </style>
-    
+    -->
+
+    <section id="books" style="margin-top: 40px;">
+  <h2 style="color: #fff;">📚 Book Recommendations</h2>
+  <div style="line-height: 1.7; font-size: 15px; color: #ddd;">
+
+    <div style="margin-top: 18px;">
+      <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">🧩 Group Theory</h3>
+      <ul class="book-list" style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
+        <li><em>An Introduction to Tensors and Group Theory for Physicists</em> — <strong>Nadir Jeevanjee</strong></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 18px;">
+      <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">⚛️ Undergraduate Quantum Mechanics</h3>
+      <ul class="book-list" style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
+        <li><em>A Modern Approach to Quantum Mechanics</em> — <strong>John S. Townsend</strong></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 18px;">
+      <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">🎓 Graduate Quantum Mechanics</h3>
+      <ul class="book-list" style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
+        <li><em>Modern Quantum Mechanics</em> — <strong>J. J. Sakurai & Jim Napolitano</strong></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 18px;">
+      <h3 style="color: #fff; font-weight: 600; text-shadow: 0 0 6px rgba(255,255,255,0.25); margin-bottom: 6px;">🏛️ Philosophy</h3>
+      <ul class="book-list" style="margin-left: 25px; list-style-type: '• '; padding-left: 0;">
+        <li><em>Essay on the Freedom of the Will</em> — <strong>Arthur Schopenhauer</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
     
   </ul>
 
