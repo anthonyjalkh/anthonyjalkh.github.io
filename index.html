@@ -257,25 +257,37 @@ let lastScroll = scrollY;
 let velocity = 0;
 
 function drawGrid(v) {
-  gctx.clearRect(0,0,gridCanvas.width,gridCanvas.height);
-  const spacing = 80;
-  const shear = Math.max(Math.min(v * 0.015, 1.5), -1.5);
+  gctx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
+
+  const cx = gridCanvas.width / 2;
+  const cy = gridCanvas.height / 2;
+
+  const beta = Math.max(Math.min(v * 0.01, 0.9), -0.9);
+  const gamma = 1 / Math.sqrt(1 - beta * beta);
+
+  const baseSpacing = 90;
+  const dx = baseSpacing / gamma; // length contraction
+  const dy = baseSpacing * gamma; // time dilation
 
   gctx.strokeStyle = "rgba(110,207,246,0.65)";
   gctx.lineWidth = 1;
 
-  for (let y = -spacing; y < gridCanvas.height + spacing; y += spacing) {
+  // "Time" lines (horizontal)
+  for (let y = -dy; y < gridCanvas.height + dy; y += dy) {
     gctx.beginPath();
     for (let x = 0; x <= gridCanvas.width; x += 20) {
-      gctx.lineTo(x + shear * (y - gridCanvas.height/2), y);
+      const xt = x + beta * (y - cy);
+      gctx.lineTo(xt, y);
     }
     gctx.stroke();
   }
 
-  for (let x = -spacing; x < gridCanvas.width + spacing; x += spacing) {
+  // "Space" lines (vertical)
+  for (let x = -dx; x < gridCanvas.width + dx; x += dx) {
     gctx.beginPath();
     for (let y = 0; y <= gridCanvas.height; y += 20) {
-      gctx.lineTo(x, y - shear * (x - gridCanvas.width/2));
+      const yt = y + beta * (x - cx);
+      gctx.lineTo(x, yt);
     }
     gctx.stroke();
   }
