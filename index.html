@@ -6,9 +6,8 @@
 
 <meta name="description" content="Physics and mathematics notes by Anthony Jalkh.">
 <meta name="author" content="Anthony Jalkh">
-<meta name="google-site-verification" content="26XawHVM_snKyoViWcHP7Jw_YHl-FTnlUO6JjgRpkUo">
 
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico">
 <link rel="me" href="https://www.linkedin.com/in/anthony-jalkh-physics">
 
 <style>
@@ -18,135 +17,90 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   line-height: 1.6;
-  color: white;
-
   background: url('https://static.vecteezy.com/system/resources/previews/000/834/435/non_2x/beautiful-space-background-vector.jpg')
     no-repeat center center fixed;
   background-size: cover;
-
+  color: white;
   position: relative;
   z-index: 1;
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: -1;
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:-1;
 }
 
-h1 { font-size: 2em; }
-h2 { margin-top: 2em; }
+h1 { font-size:2em; }
+h2 { margin-top:2em; }
 
 a {
-  color: #6ECFF6;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.2s ease;
+  color:#6ECFF6;
+  text-decoration:none;
+  transition:all 0.2s ease;
 }
-
 a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #6ECFF6;
+  color:#fff;
+  text-shadow:0 0 8px #6ECFF6;
 }
 
-ul { padding-left: 20px; }
+ul { padding-left:20px; }
 
-.book-list li {
-  transition: all 0.25s ease;
-}
-
-.book-list li:hover {
-  color: #fff6d1;
-  text-shadow: 0 0 10px rgba(255,255,180,0.7);
-}
-
-footer {
-  margin-top: 50px;
-  font-size: 0.9em;
-  color: #ccc;
-}
-
-.small-text { font-size: 13.5px; }
-.large-text { font-size: 15.5px; }
-
-/* ===== Scroll animations ===== */
 .section {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
 }
-
 .section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* ===== Header underline (new style) ===== */
 .section h2 {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
+  position:relative;
+  display:inline-block;
+  padding-bottom:6px;
 }
-
 .section h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 0;
-
-  background: #c77dff;
-  box-shadow: 0 0 10px rgba(199,125,255,0.9);
-
-  transition: width 2.4s cubic-bezier(0.22,1,0.36,1);
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:1px;
+  width:0;
+  background:#ff9d6c;
+  box-shadow:0 0 10px rgba(255,157,108,0.8);
+  transition:width 1.8s cubic-bezier(0.22,1,0.36,1);
 }
-
 .section.visible h2::after {
-  width: 100%;
-  transition-delay: 0.2s;
+  width:100%;
 }
 
 .book-category {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
 }
-
 .section.visible .book-category {
-  opacity: 1;
-  transform: translateY(0);
+  opacity:1;
+  transform:translateY(0);
 }
 
-.section.visible .book-category:nth-child(2) { transition-delay: 0.05s; }
-.section.visible .book-category:nth-child(3) { transition-delay: 0.12s; }
-.section.visible .book-category:nth-child(4) { transition-delay: 0.18s; }
-.section.visible .book-category:nth-child(5) { transition-delay: 0.25s; }
-
-@media (max-width: 768px) {
-  .section, .book-category {
-    transition: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ===== Canvases ===== */
 canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+  position:fixed;
+  inset:0;
+  pointer-events:none;
 }
 
-#relativityGrid {
-  z-index: 0;
-  opacity: 0.45;
-}
+#relativityGrid { z-index:0; opacity:0.35; }
+#spaceshipCanvas { z-index:0; }
 
-#spaceshipCanvas {
-  z-index: 0;
+footer {
+  margin-top:50px;
+  font-size:0.9em;
+  color:#ccc;
 }
 </style>
 </head>
@@ -157,20 +111,15 @@ canvas {
 <canvas id="spaceshipCanvas"></canvas>
 
 <h1>Anthony Jalkh</h1>
-<p class="large-text">Fundamental Physics and Cosmology</p>
-
-<p class="small-text">
-A large part of my notes is in French, but mathematics is a universal language.
-If you need a translation, feel free to contact me.
-</p>
+<p>Fundamental Physics and Cosmology</p>
 
 <div class="section">
 <h2>Publicly Available Notes</h2>
 <ul>
-  <li><a href="[FRENCH] fourier_series_summary.pdf" target="_blank">[FRENCH] Série de Fourier — Résumé</a></li>
-  <li><a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">[FRENCH] Formes dérivées de la formule intégrale de Cauchy</a></li>
-  <li><a href="Systèmes d'unités.pdf" target="_blank">[FRENCH] Systèmes d’unités en physique</a></li>
-  <li><a href="The Power of the Variational Method.pdf" target="_blank">The Power of the Variational Method</a></li>
+<li><a href="[FRENCH] fourier_series_summary.pdf">[FRENCH] Série de Fourier</a></li>
+<li><a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf">[FRENCH] Formule de Cauchy</a></li>
+<li><a href="Systèmes d'unités.pdf">[FRENCH] Systèmes d’unités</a></li>
+<li><a href="The Power of the Variational Method.pdf">Variational Method</a></li>
 </ul>
 </div>
 
@@ -181,38 +130,12 @@ If you need a translation, feel free to contact me.
 
 <div class="book-category">
 <h3>Group Theory</h3>
-<ul class="book-list">
-  <li><em>An Introduction to Tensors and Group Theory for Physicists</em> — Jeevanjee</li>
-  <li><em>Group Theory and Physics</em> — Sternberg</li>
-</ul>
+<ul><li>Jeevanjee</li><li>Sternberg</li></ul>
 </div>
 
 <div class="book-category">
-<h3>Undergraduate Quantum Mechanics</h3>
-<ul class="book-list">
-  <li><em>A Modern Approach to Quantum Mechanics</em> — Townsend</li>
-</ul>
-</div>
-
-<div class="book-category">
-<h3>Graduate Quantum Mechanics</h3>
-<ul class="book-list">
-  <li><em>Modern Quantum Mechanics</em> — Sakurai & Napolitano</li>
-</ul>
-</div>
-
-<div class="book-category">
-<h3>Introductory QFT</h3>
-<ul class="book-list">
-  <li><em>Quantum Field Theory for the Gifted Amateur</em> — Blundell & Lancaster</li>
-</ul>
-</div>
-
-<div class="book-category">
-<h3>Philosophy</h3>
-<ul class="book-list">
-  <li><em>Essay on the Freedom of the Will</em> — Schopenhauer</li>
-</ul>
+<h3>Quantum Mechanics</h3>
+<ul><li>Townsend</li><li>Sakurai</li></ul>
 </div>
 </div>
 
@@ -220,88 +143,137 @@ If you need a translation, feel free to contact me.
 
 <div class="section">
 <h2>Interesting Reads</h2>
-<ul style="list-style:none;padding-left:15px">
-  <li><a href="http://arxiv.org/abs/2112.05619" target="_blank">Introduction to Koopman–von Neumann Mechanics</a></li>
-  <li><a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank">The Unreasonable Effectiveness of Mathematics</a></li>
+<ul>
+<li><a href="http://arxiv.org/abs/2112.05619">Koopman–von Neumann</a></li>
+<li><a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf">Wigner</a></li>
 </ul>
 </div>
 
-<footer class="section">
-<h2>About this website</h2>
-<p>This website hosts personal notes and exploratory projects in physics and mathematics. It is not formal research.</p>
+<footer>
 <p>Contact: anthonyjalkh1@proton.me</p>
 </footer>
 
 <script>
-/* ===== Section observer ===== */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add("visible");
-  });
-}, { threshold: 0.15 });
+// ===== Section reveal =====
+const obs = new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting && x.target.classList.add("visible"));
+},{threshold:0.15});
+document.querySelectorAll(".section").forEach(s=>obs.observe(s));
 
-document.querySelectorAll(".section").forEach(s => observer.observe(s));
+// ===== Lorentz Grid =====
+const grid = document.getElementById("relativityGrid");
+const gctx = grid.getContext("2d");
 
-/* ===== Lorentz-style grid ===== */
-const gridCanvas = document.getElementById("relativityGrid");
-const gctx = gridCanvas.getContext("2d");
-
-function resizeGrid() {
-  gridCanvas.width = innerWidth;
-  gridCanvas.height = innerHeight;
+function resize() {
+  grid.width = innerWidth;
+  grid.height = innerHeight;
 }
-resizeGrid();
-addEventListener("resize", resizeGrid);
+resize();
+addEventListener("resize", resize);
 
+let rapidity = 0;
+let smoothEta = 0;
 let lastScroll = scrollY;
-let velocity = 0;
 
-function drawGrid(v) {
-  gctx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
+function drawGrid(beta) {
+  gctx.clearRect(0,0,grid.width,grid.height);
+  const γ = 1 / Math.sqrt(1 - beta*beta);
+  const spacing = 80;
+  const cx = grid.width/2;
+  const cy = grid.height/2;
 
-  const cx = gridCanvas.width / 2;
-  const cy = gridCanvas.height / 2;
-
-  const beta = Math.max(Math.min(v * 0.01, 0.9), -0.9);
-  const gamma = 1 / Math.sqrt(1 - beta * beta);
-
-  const baseSpacing = 90;
-  const dx = baseSpacing / gamma; // length contraction
-  const dy = baseSpacing * gamma; // time dilation
-
-  gctx.strokeStyle = "rgba(110,207,246,0.65)";
+  gctx.strokeStyle = "rgba(110,207,246,0.6)";
   gctx.lineWidth = 1;
 
-  // "Time" lines (horizontal)
-  for (let y = -dy; y < gridCanvas.height + dy; y += dy) {
+  function boost(x,t){
+    return {
+      x: γ*(x - beta*t),
+      t: γ*(t - beta*x)
+    };
+  }
+
+  // vertical (space) lines
+  for(let x=-800;x<=800;x+=spacing){
     gctx.beginPath();
-    for (let x = 0; x <= gridCanvas.width; x += 20) {
-      const xt = x + beta * (y - cy);
-      gctx.lineTo(xt, y);
+    for(let t=-800;t<=800;t+=20){
+      const p = boost(x,t);
+      gctx.lineTo(cx + p.x, cy - p.t);
     }
     gctx.stroke();
   }
 
-  // "Space" lines (vertical)
-  for (let x = -dx; x < gridCanvas.width + dx; x += dx) {
+  // horizontal (time) lines
+  for(let t=-800;t<=800;t+=spacing){
     gctx.beginPath();
-    for (let y = 0; y <= gridCanvas.height; y += 20) {
-      const yt = y + beta * (x - cx);
-      gctx.lineTo(x, yt);
+    for(let x=-800;x<=800;x+=20){
+      const p = boost(x,t);
+      gctx.lineTo(cx + p.x, cy - p.t);
     }
     gctx.stroke();
   }
 }
 
-function animateGrid() {
-  const delta = scrollY - lastScroll;
+function animateGrid(){
+  const d = scrollY - lastScroll;
   lastScroll = scrollY;
-  velocity += (delta - velocity) * 0.25;
-  velocity *= 0.85;
-  drawGrid(velocity);
+
+  rapidity += d * 0.003;
+  rapidity = Math.max(Math.min(rapidity,2.2),-2.2);
+  smoothEta += (rapidity - smoothEta)*0.15;
+
+  const beta = Math.tanh(smoothEta);
+  drawGrid(beta);
   requestAnimationFrame(animateGrid);
 }
 animateGrid();
+
+// ===== Spaceship =====
+const shipC = document.getElementById("spaceshipCanvas");
+const sctx = shipC.getContext("2d");
+function rs(){ shipC.width=innerWidth; shipC.height=innerHeight;}
+rs(); addEventListener("resize",rs);
+
+let ship={x:-100,y:innerHeight/2,a:0};
+let trail=[];
+
+function animateShip(){
+  sctx.clearRect(0,0,shipC.width,shipC.height);
+
+  trail.forEach(p=>{
+    sctx.fillStyle=`rgba(110,207,246,${p.a})`;
+    sctx.beginPath(); sctx.arc(p.x,p.y,p.s,0,Math.PI*2); sctx.fill();
+    p.x-=0.6; p.a-=0.01;
+  });
+  trail=trail.filter(p=>p.a>0);
+
+  sctx.save();
+  sctx.translate(ship.x,ship.y);
+  sctx.rotate(Math.sin(ship.a)*0.15);
+  sctx.beginPath();
+  sctx.moveTo(12,0);
+  sctx.lineTo(-10,-6);
+  sctx.lineTo(-10,6);
+  sctx.closePath();
+  sctx.fillStyle="#6ECFF6";
+  sctx.shadowBlur=15;
+  sctx.shadowColor="#6ECFF6";
+  sctx.fill();
+  sctx.restore();
+
+  trail.push({x:ship.x-10,y:ship.y,s:2,a:0.4});
+
+  ship.x+=0.6;
+  ship.y+=Math.sin(ship.a)*0.4;
+  ship.a+=0.02;
+
+  if(ship.x>shipC.width+100){
+    ship.x=-100;
+    ship.y=Math.random()*innerHeight*0.6+innerHeight*0.2;
+    trail=[];
+  }
+  requestAnimationFrame(animateShip);
+}
+animateShip();
 </script>
 
 </body>
