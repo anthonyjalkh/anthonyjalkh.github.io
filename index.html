@@ -49,9 +49,7 @@
       text-shadow: 0 0 8px #6ECFF6;
     }
 
-    ul {
-      padding-left: 20px;
-    }
+    ul { padding-left: 20px; }
 
     .book-list li {
       transition: all 0.25s ease;
@@ -98,11 +96,12 @@
       width: 0;
       background: #6ECFF6;
       box-shadow: 0 0 8px rgba(110,207,246,0.8);
-      transition: width 0.8s ease;
+      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .section.visible h2::after {
       width: 100%;
+      transition-delay: 0.15s;
     }
 
     .book-category {
@@ -136,8 +135,14 @@
       pointer-events: none;
     }
 
-    #relativityGrid { z-index: 0; opacity: 0.12; }
-    #spaceshipCanvas { z-index: 0; }
+    #relativityGrid {
+      z-index: 0;
+      opacity: 0.28;
+    }
+
+    #spaceshipCanvas {
+      z-index: 0;
+    }
   </style>
 </head>
 
@@ -157,26 +162,10 @@
 <div class="section">
   <h2>Publicly Available Notes</h2>
   <ul>
-    <li>
-      <a href="[FRENCH] fourier_series_summary.pdf" target="_blank">
-        [FRENCH] Série de Fourier — Résumé d’une page
-      </a>
-    </li>
-    <li>
-      <a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">
-        [FRENCH] Formes dérivées de la formule intégrale de Cauchy
-      </a>
-    </li>
-    <li>
-      <a href="Systèmes d'unités.pdf" target="_blank">
-        [FRENCH] Systèmes d’unités en physique
-      </a>
-    </li>
-    <li>
-      <a href="The Power of the Variational Method.pdf" target="_blank">
-        The Power of the Variational Method
-      </a>
-    </li>
+    <li><a href="[FRENCH] fourier_series_summary.pdf" target="_blank">[FRENCH] Série de Fourier — Résumé</a></li>
+    <li><a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">[FRENCH] Formes dérivées de la formule intégrale de Cauchy</a></li>
+    <li><a href="Systèmes d'unités.pdf" target="_blank">[FRENCH] Systèmes d’unités en physique</a></li>
+    <li><a href="The Power of the Variational Method.pdf" target="_blank">The Power of the Variational Method</a></li>
   </ul>
 </div>
 
@@ -227,33 +216,22 @@
 <div class="section">
   <h2>Interesting Reads</h2>
   <ul style="list-style:none;padding-left:15px">
-    <li>
-      <a href="http://arxiv.org/abs/2112.05619" target="_blank">
-        Introduction to Koopman–von Neumann Mechanics
-      </a>
-    </li>
-    <li>
-      <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank">
-        The Unreasonable Effectiveness of Mathematics
-      </a>
-    </li>
+    <li><a href="http://arxiv.org/abs/2112.05619" target="_blank">Introduction to Koopman–von Neumann Mechanics</a></li>
+    <li><a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank">The Unreasonable Effectiveness of Mathematics</a></li>
   </ul>
 </div>
 
 <footer>
   <h2>About this website</h2>
-  <p>
-    This website hosts personal notes and exploratory projects in physics and mathematics.
-    It is not formal research.
-  </p>
+  <p>This website hosts personal notes and exploratory projects in physics and mathematics. It is not formal research.</p>
   <p>Contact: anthonyjalkh1@proton.me</p>
 </footer>
 
 <script>
-/* ===== Scroll observer ===== */
+/* ===== Section observer ===== */
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("visible");
   });
 }, { threshold: 0.15 });
 
@@ -270,27 +248,33 @@ function resizeGrid() {
 resizeGrid();
 addEventListener("resize", resizeGrid);
 
-let lastScroll = scrollY, smoothV = 0;
+let lastScroll = scrollY;
+let smoothV = 0;
 
 function drawGrid(v) {
-  gridCtx.clearRect(0,0,gridCanvas.width,gridCanvas.height);
+  gridCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
   const spacing = 90;
-  const shear = Math.max(Math.min(v * 0.002, 0.6), -0.6);
-  gridCtx.strokeStyle = "rgba(110,207,246,0.35)";
-  for (let y=-spacing;y<gridCanvas.height+spacing;y+=spacing){
+  const shear = Math.max(Math.min(v * 0.004, 0.9), -0.9);
+
+  gridCtx.strokeStyle = "rgba(110,207,246,0.55)";
+  gridCtx.lineWidth = 1;
+
+  for (let y = -spacing; y < gridCanvas.height + spacing; y += spacing) {
     gridCtx.beginPath();
-    for (let x=0;x<gridCanvas.width;x+=20){
-      gridCtx.lineTo(x + shear*(y-gridCanvas.height/2), y);
+    for (let x = 0; x <= gridCanvas.width; x += 20) {
+      gridCtx.lineTo(x + shear * (y - gridCanvas.height / 2), y);
     }
     gridCtx.stroke();
   }
 }
 
-function animateGrid(){
+function animateGrid() {
   const v = scrollY - lastScroll;
   lastScroll = scrollY;
-  smoothV += (v - smoothV) * 0.08;
-  smoothV *= 0.92;
+
+  smoothV += (v - smoothV) * 0.15;
+  smoothV *= 0.85;
+
   drawGrid(smoothV);
   requestAnimationFrame(animateGrid);
 }
@@ -300,51 +284,55 @@ animateGrid();
 const shipCanvas = document.getElementById("spaceshipCanvas");
 const shipCtx = shipCanvas.getContext("2d");
 
-function resizeShip(){
+function resizeShip() {
   shipCanvas.width = innerWidth;
   shipCanvas.height = innerHeight;
 }
 resizeShip();
 addEventListener("resize", resizeShip);
 
-let ship = { x:-100, y:innerHeight/2, speed:0.4, angle:0 };
-let trail=[];
+let ship = { x: -100, y: innerHeight / 2, speed: 0.4, angle: 0 };
+let trail = [];
 
-function animateShip(){
-  shipCtx.clearRect(0,0,shipCanvas.width,shipCanvas.height);
-  trail.forEach(p=>{
-    shipCtx.fillStyle=`rgba(110,207,246,${p.a})`;
+function animateShip() {
+  shipCtx.clearRect(0, 0, shipCanvas.width, shipCanvas.height);
+
+  trail.forEach(p => {
+    shipCtx.fillStyle = `rgba(110,207,246,${p.a})`;
     shipCtx.beginPath();
-    shipCtx.arc(p.x,p.y,p.s,0,Math.PI*2);
+    shipCtx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
     shipCtx.fill();
-    p.x-=ship.speed*1.5; p.a-=0.01;
+    p.x -= ship.speed * 1.5;
+    p.a -= 0.01;
   });
-  trail=trail.filter(p=>p.a>0);
+  trail = trail.filter(p => p.a > 0);
 
   shipCtx.save();
-  shipCtx.translate(ship.x,ship.y);
-  shipCtx.rotate(Math.sin(ship.angle)*0.15);
+  shipCtx.translate(ship.x, ship.y);
+  shipCtx.rotate(Math.sin(ship.angle) * 0.15);
   shipCtx.beginPath();
-  shipCtx.moveTo(10,0);
-  shipCtx.lineTo(-8,-5);
-  shipCtx.lineTo(-8,5);
+  shipCtx.moveTo(10, 0);
+  shipCtx.lineTo(-8, -5);
+  shipCtx.lineTo(-8, 5);
   shipCtx.closePath();
-  shipCtx.fillStyle="#6ECFF6";
-  shipCtx.shadowBlur=15;
-  shipCtx.shadowColor="#6ECFF6";
+  shipCtx.fillStyle = "#6ECFF6";
+  shipCtx.shadowBlur = 15;
+  shipCtx.shadowColor = "#6ECFF6";
   shipCtx.fill();
   shipCtx.restore();
 
-  trail.push({x:ship.x-10,y:ship.y,s:2,a:0.4});
-  ship.x+=ship.speed;
-  ship.y+=Math.sin(ship.angle)*0.4;
-  ship.angle+=0.02;
+  trail.push({ x: ship.x - 10, y: ship.y, s: 2, a: 0.4 });
 
-  if(ship.x>shipCanvas.width+100){
-    ship.x=-100;
-    ship.y=Math.random()*innerHeight*0.6+innerHeight*0.2;
-    trail=[];
+  ship.x += ship.speed;
+  ship.y += Math.sin(ship.angle) * 0.4;
+  ship.angle += 0.02;
+
+  if (ship.x > shipCanvas.width + 100) {
+    ship.x = -100;
+    ship.y = Math.random() * innerHeight * 0.6 + innerHeight * 0.2;
+    trail = [];
   }
+
   requestAnimationFrame(animateShip);
 }
 animateShip();
