@@ -6,10 +6,8 @@
 
   <meta name="description" content="Physics and mathematics notes by Anthony Jalkh.">
   <meta name="author" content="Anthony Jalkh">
-  <meta name="google-site-verification" content="26XawHVM_snKyoViWcHP7Jw_YHl-FTnlUO6JjgRpkUo">
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="me" href="https://www.linkedin.com/in/anthony-jalkh-physics">
+  <link rel="icon" href="favicon.ico">
 
   <style>
     body {
@@ -18,10 +16,10 @@
       margin: 60px auto;
       padding: 0 20px;
       line-height: 1.6;
-      background: url('https://static.vecteezy.com/system/resources/previews/000/834/435/non_2x/beautiful-space-background-vector.jpg')
+      color: white;
+      background: url("https://static.vecteezy.com/system/resources/previews/000/834/435/non_2x/beautiful-space-background-vector.jpg")
         no-repeat center center fixed;
       background-size: cover;
-      color: white;
       position: relative;
       z-index: 1;
     }
@@ -40,25 +38,15 @@
     a {
       color: #6ECFF6;
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
+      transition: 0.2s ease;
     }
 
     a:hover {
-      color: #fff;
+      color: white;
       text-shadow: 0 0 8px #6ECFF6;
     }
 
     ul { padding-left: 20px; }
-
-    .book-list li {
-      transition: all 0.25s ease;
-    }
-
-    .book-list li:hover {
-      color: #fff6d1;
-      text-shadow: 0 0 10px rgba(255,255,180,0.7);
-    }
 
     footer {
       margin-top: 50px;
@@ -66,13 +54,10 @@
       color: #ccc;
     }
 
-    .small-text { font-size: 13.5px; }
-    .large-text { font-size: 15.5px; }
-
-    /* ===== Scroll animations ===== */
+    /* ===== Scroll reveal ===== */
     .section {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(14px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
@@ -81,10 +66,11 @@
       transform: translateY(0);
     }
 
+    /* ===== Header underline ===== */
     .section h2 {
       position: relative;
       display: inline-block;
-      padding-bottom: 6px;
+      padding-bottom: 8px;
     }
 
     .section h2::after {
@@ -94,41 +80,16 @@
       bottom: 0;
       height: 1px;
       width: 0;
-      background: #6ECFF6;
-      box-shadow: 0 0 8px rgba(110,207,246,0.8);
-      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+      background: #c77dff;
+      box-shadow: 0 0 10px rgba(199,125,255,0.8);
+      transition: width 2.2s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .section.visible h2::after {
       width: 100%;
-      transition-delay: 0.15s;
+      transition-delay: 0.2s;
     }
 
-    .book-category {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .section.visible .book-category {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section.visible .book-category:nth-child(2) { transition-delay: 0.05s; }
-    .section.visible .book-category:nth-child(3) { transition-delay: 0.12s; }
-    .section.visible .book-category:nth-child(4) { transition-delay: 0.18s; }
-    .section.visible .book-category:nth-child(5) { transition-delay: 0.25s; }
-
-    @media (max-width: 768px) {
-      .section, .book-category {
-        transition: none;
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* ===== Canvases ===== */
     canvas {
       position: fixed;
       inset: 0;
@@ -137,11 +98,7 @@
 
     #relativityGrid {
       z-index: 0;
-      opacity: 0.28;
-    }
-
-    #spaceshipCanvas {
-      z-index: 0;
+      opacity: 0.35;
     }
   </style>
 </head>
@@ -149,82 +106,32 @@
 <body>
 
 <canvas id="relativityGrid"></canvas>
-<canvas id="spaceshipCanvas"></canvas>
 
 <h1>Anthony Jalkh</h1>
-<p class="large-text">Fundamental Physics and Cosmology</p>
-
-<p class="small-text">
-  A large part of my notes is in French, but mathematics is a universal language.
-  If you need a translation, feel free to contact me.
-</p>
+<p>Fundamental Physics and Cosmology</p>
 
 <div class="section">
   <h2>Publicly Available Notes</h2>
   <ul>
-    <li><a href="[FRENCH] fourier_series_summary.pdf" target="_blank">[FRENCH] Série de Fourier — Résumé</a></li>
-    <li><a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">[FRENCH] Formes dérivées de la formule intégrale de Cauchy</a></li>
-    <li><a href="Systèmes d'unités.pdf" target="_blank">[FRENCH] Systèmes d’unités en physique</a></li>
-    <li><a href="The Power of the Variational Method.pdf" target="_blank">The Power of the Variational Method</a></li>
+    <li><a href="#">Fourier Series — Summary</a></li>
+    <li><a href="#">Cauchy Integral Formula</a></li>
+    <li><a href="#">Systems of Units in Physics</a></li>
+    <li><a href="#">The Power of the Variational Method</a></li>
   </ul>
 </div>
-
-<hr>
 
 <div class="section">
   <h2>Book Recommendations</h2>
-
-  <div class="book-category">
-    <h3>Group Theory</h3>
-    <ul class="book-list">
-      <li><em>An Introduction to Tensors and Group Theory for Physicists</em> — Jeevanjee</li>
-      <li><em>Group Theory and Physics</em> — Sternberg</li>
-    </ul>
-  </div>
-
-  <div class="book-category">
-    <h3>Undergraduate Quantum Mechanics</h3>
-    <ul class="book-list">
-      <li><em>A Modern Approach to Quantum Mechanics</em> — Townsend</li>
-    </ul>
-  </div>
-
-  <div class="book-category">
-    <h3>Graduate Quantum Mechanics</h3>
-    <ul class="book-list">
-      <li><em>Modern Quantum Mechanics</em> — Sakurai & Napolitano</li>
-    </ul>
-  </div>
-
-  <div class="book-category">
-    <h3>Introductory QFT</h3>
-    <ul class="book-list">
-      <li><em>Quantum Field Theory for the Gifted Amateur</em> — Blundell & Lancaster</li>
-    </ul>
-  </div>
-
-  <div class="book-category">
-    <h3>Philosophy</h3>
-    <ul class="book-list">
-      <li><em>Essay on the Freedom of the Will</em> — Schopenhauer</li>
-    </ul>
-  </div>
-</div>
-
-<hr>
-
-<div class="section">
-  <h2>Interesting Reads</h2>
-  <ul style="list-style:none;padding-left:15px">
-    <li><a href="http://arxiv.org/abs/2112.05619" target="_blank">Introduction to Koopman–von Neumann Mechanics</a></li>
-    <li><a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank">The Unreasonable Effectiveness of Mathematics</a></li>
+  <ul>
+    <li>Jeevanjee — Group Theory</li>
+    <li>Townsend — Quantum Mechanics</li>
+    <li>Sakurai — Modern Quantum Mechanics</li>
   </ul>
 </div>
 
-<footer>
-  <h2>About this website</h2>
-  <p>This website hosts personal notes and exploratory projects in physics and mathematics. It is not formal research.</p>
-  <p>Contact: anthonyjalkh1@proton.me</p>
+<footer class="section">
+  <h2>About</h2>
+  <p>This website hosts personal notes and exploratory material. It is not formal research.</p>
 </footer>
 
 <script>
@@ -237,105 +144,60 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".section").forEach(s => observer.observe(s));
 
-/* ===== Relativity grid ===== */
-const gridCanvas = document.getElementById("relativityGrid");
-const gridCtx = gridCanvas.getContext("2d");
+/* ===== Lorentz grid ===== */
+const canvas = document.getElementById("relativityGrid");
+const ctx = canvas.getContext("2d");
 
-function resizeGrid() {
-  gridCanvas.width = innerWidth;
-  gridCanvas.height = innerHeight;
+function resize() {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
 }
-resizeGrid();
-addEventListener("resize", resizeGrid);
+resize();
+addEventListener("resize", resize);
 
 let lastScroll = scrollY;
-let smoothV = 0;
+let velocity = 0;
 
 function drawGrid(v) {
-  gridCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
-  const spacing = 90;
-  const shear = Math.max(Math.min(v * 0.004, 0.9), -0.9);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  gridCtx.strokeStyle = "rgba(110,207,246,0.55)";
-  gridCtx.lineWidth = 1;
+  const spacing = 80;
+  const shear = Math.max(Math.min(v * 0.01, 1.2), -1.2);
 
-  for (let y = -spacing; y < gridCanvas.height + spacing; y += spacing) {
-    gridCtx.beginPath();
-    for (let x = 0; x <= gridCanvas.width; x += 20) {
-      gridCtx.lineTo(x + shear * (y - gridCanvas.height / 2), y);
+  ctx.strokeStyle = "rgba(110,207,246,0.6)";
+  ctx.lineWidth = 1;
+
+  /* horizontal lines */
+  for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
+    ctx.beginPath();
+    for (let x = 0; x <= canvas.width; x += 20) {
+      ctx.lineTo(x + shear * (y - canvas.height / 2), y);
     }
-    gridCtx.stroke();
+    ctx.stroke();
+  }
+
+  /* vertical lines */
+  for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
+    ctx.beginPath();
+    for (let y = 0; y <= canvas.height; y += 20) {
+      ctx.lineTo(x, y + shear * (x - canvas.width / 2));
+    }
+    ctx.stroke();
   }
 }
 
-function animateGrid() {
-  const v = scrollY - lastScroll;
+function animate() {
+  const delta = scrollY - lastScroll;
   lastScroll = scrollY;
 
-  smoothV += (v - smoothV) * 0.15;
-  smoothV *= 0.85;
+  velocity += (delta - velocity) * 0.2;
+  velocity *= 0.85;
 
-  drawGrid(smoothV);
-  requestAnimationFrame(animateGrid);
+  drawGrid(velocity);
+  requestAnimationFrame(animate);
 }
-animateGrid();
 
-/* ===== Spaceship ===== */
-const shipCanvas = document.getElementById("spaceshipCanvas");
-const shipCtx = shipCanvas.getContext("2d");
-
-function resizeShip() {
-  shipCanvas.width = innerWidth;
-  shipCanvas.height = innerHeight;
-}
-resizeShip();
-addEventListener("resize", resizeShip);
-
-let ship = { x: -100, y: innerHeight / 2, speed: 0.4, angle: 0 };
-let trail = [];
-
-function animateShip() {
-  shipCtx.clearRect(0, 0, shipCanvas.width, shipCanvas.height);
-
-  trail.forEach(p => {
-    shipCtx.fillStyle = `rgba(110,207,246,${p.a})`;
-    shipCtx.beginPath();
-    shipCtx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-    shipCtx.fill();
-    p.x -= ship.speed * 1.5;
-    p.a -= 0.01;
-  });
-  trail = trail.filter(p => p.a > 0);
-
-  shipCtx.save();
-  shipCtx.translate(ship.x, ship.y);
-  shipCtx.rotate(Math.sin(ship.angle) * 0.15);
-  shipCtx.beginPath();
-  shipCtx.moveTo(10, 0);
-  shipCtx.lineTo(-8, -5);
-  shipCtx.lineTo(-8, 5);
-  shipCtx.closePath();
-  shipCtx.fillStyle = "#6ECFF6";
-  shipCtx.shadowBlur = 15;
-  shipCtx.shadowColor = "#6ECFF6";
-  shipCtx.fill();
-  shipCtx.restore();
-
-  trail.push({ x: ship.x - 10, y: ship.y, s: 2, a: 0.4 });
-
-  ship.x += ship.speed;
-  ship.y += Math.sin(ship.angle) * 0.4;
-  ship.angle += 0.02;
-
-  if (ship.x > shipCanvas.width + 100) {
-    ship.x = -100;
-    ship.y = Math.random() * innerHeight * 0.6 + innerHeight * 0.2;
-    trail = [];
-  }
-
-  requestAnimationFrame(animateShip);
-}
-animateShip();
+animate();
 </script>
 
 </body>
