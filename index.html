@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <title>Anthony Jalkh — Physics and Mathematics Notes</title>
 
-<meta name="description" content="Notes rigoureuses en mathématiques et physique par Anthony Jalkh.">
+<meta name="description" content="Physics and mathematics notes by Anthony Jalkh.">
 <meta name="author" content="Anthony Jalkh">
+<meta name="google-site-verification" content="26XawHVM_snKyoViWcHP7Jw_YHl-FTnlUO6JjgRpkUo">
 
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="me" href="https://www.linkedin.com/in/anthony-jalkh-physics">
 
 <style>
 body {
@@ -34,15 +36,30 @@ body::before {
   z-index: -1;
 }
 
+h1 { font-size: 2em; }
+h2 { margin-top: 2em; }
+
 a {
   color: #6ECFF6;
   text-decoration: none;
+  font-weight: 500;
   transition: 0.2s ease;
 }
 
 a:hover {
-  color: white;
+  color: #fff;
   text-shadow: 0 0 8px #6ECFF6;
+}
+
+ul { padding-left: 20px; }
+
+.book-list li {
+  transition: all 0.25s ease;
+}
+
+.book-list li:hover {
+  color: #fff6d1;
+  text-shadow: 0 0 10px rgba(255,255,180,0.7);
 }
 
 footer {
@@ -51,7 +68,10 @@ footer {
   color: #ccc;
 }
 
-/* ===== Section reveal ===== */
+.small-text { font-size: 13.5px; }
+.large-text { font-size: 15.5px; }
+
+/* ===== Scroll animations ===== */
 .section {
   opacity: 0;
   transform: translateY(12px);
@@ -63,7 +83,7 @@ footer {
   transform: translateY(0);
 }
 
-/* ===== Header underline (FIXED) ===== */
+/* ===== Header underline (new style) ===== */
 .section h2 {
   position: relative;
   display: inline-block;
@@ -89,6 +109,30 @@ footer {
   transition-delay: 0.2s;
 }
 
+.book-category {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.visible .book-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section.visible .book-category:nth-child(2) { transition-delay: 0.05s; }
+.section.visible .book-category:nth-child(3) { transition-delay: 0.12s; }
+.section.visible .book-category:nth-child(4) { transition-delay: 0.18s; }
+.section.visible .book-category:nth-child(5) { transition-delay: 0.25s; }
+
+@media (max-width: 768px) {
+  .section, .book-category {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ===== Canvases ===== */
 canvas {
   position: fixed;
@@ -110,60 +154,83 @@ canvas {
 <body>
 
 <canvas id="relativityGrid"></canvas>
+<canvas id="spaceshipCanvas"></canvas>
 
 <h1>Anthony Jalkh</h1>
 <p class="large-text">Fundamental Physics and Cosmology</p>
 
+<p class="small-text">
+A large part of my notes is in French, but mathematics is a universal language.
+If you need a translation, feel free to contact me.
+</p>
+
 <div class="section">
-<h2>Publicly Available Notes :</h2>
-
+<h2>Publicly Available Notes</h2>
 <ul>
-<li>
-<a href="[FRENCH] fourier_series_summary.pdf" target="_blank">
-[FRENCH] Série de Fourier — Résumé d’une page (PDF)
-</a>
-</li>
-
-<li>
-<a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">
-[FRENCH] Formes dérivées de la formule intégrale de Cauchy (PDF)
-</a>
-</li>
-
-<li>
-<a href="Systèmes d'unités.pdf" target="_blank">
-[FRENCH] Systèmes d'unités en physique (PDF)
-</a>
-</li>
-
-<li>
-<a href="The Power of the Variational Method.pdf" target="_blank">
-The Power of the Variational Method (PDF)
-</a>
-</li>
+  <li><a href="[FRENCH] fourier_series_summary.pdf" target="_blank">[FRENCH] Série de Fourier — Résumé</a></li>
+  <li><a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank">[FRENCH] Formes dérivées de la formule intégrale de Cauchy</a></li>
+  <li><a href="Systèmes d'unités.pdf" target="_blank">[FRENCH] Systèmes d’unités en physique</a></li>
+  <li><a href="The Power of the Variational Method.pdf" target="_blank">The Power of the Variational Method</a></li>
 </ul>
 </div>
 
-<div class="section">
-<h2>Book Recommendations :</h2>
-<!-- YOUR BOOK CONTENT UNCHANGED -->
-</div>
+<hr>
 
 <div class="section">
-<h2>Interesting Reads :</h2>
-<!-- YOUR LINKS UNCHANGED -->
+<h2>Book Recommendations</h2>
+
+<div class="book-category">
+<h3>Group Theory</h3>
+<ul class="book-list">
+  <li><em>An Introduction to Tensors and Group Theory for Physicists</em> — Jeevanjee</li>
+  <li><em>Group Theory and Physics</em> — Sternberg</li>
+</ul>
+</div>
+
+<div class="book-category">
+<h3>Undergraduate Quantum Mechanics</h3>
+<ul class="book-list">
+  <li><em>A Modern Approach to Quantum Mechanics</em> — Townsend</li>
+</ul>
+</div>
+
+<div class="book-category">
+<h3>Graduate Quantum Mechanics</h3>
+<ul class="book-list">
+  <li><em>Modern Quantum Mechanics</em> — Sakurai & Napolitano</li>
+</ul>
+</div>
+
+<div class="book-category">
+<h3>Introductory QFT</h3>
+<ul class="book-list">
+  <li><em>Quantum Field Theory for the Gifted Amateur</em> — Blundell & Lancaster</li>
+</ul>
+</div>
+
+<div class="book-category">
+<h3>Philosophy</h3>
+<ul class="book-list">
+  <li><em>Essay on the Freedom of the Will</em> — Schopenhauer</li>
+</ul>
+</div>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Interesting Reads</h2>
+<ul style="list-style:none;padding-left:15px">
+  <li><a href="http://arxiv.org/abs/2112.05619" target="_blank">Introduction to Koopman–von Neumann Mechanics</a></li>
+  <li><a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank">The Unreasonable Effectiveness of Mathematics</a></li>
+</ul>
 </div>
 
 <footer class="section">
-<h2>About this website :</h2>
-<p>
-This website holds random samples of my personal notes and exploratory projects
-in physics and mathematics. It's not formal scientific research.
-</p>
-<p>Contact : anthonyjalkh1@proton.me</p>
+<h2>About this website</h2>
+<p>This website hosts personal notes and exploratory projects in physics and mathematics. It is not formal research.</p>
+<p>Contact: anthonyjalkh1@proton.me</p>
 </footer>
-
-<canvas id="spaceshipCanvas"></canvas>
 
 <script>
 /* ===== Section observer ===== */
@@ -175,59 +242,54 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".section").forEach(s => observer.observe(s));
 
-/* ===== Lorentz grid (FIXED) ===== */
-const canvas = document.getElementById("relativityGrid");
-const ctx = canvas.getContext("2d");
+/* ===== Lorentz-style grid ===== */
+const gridCanvas = document.getElementById("relativityGrid");
+const gctx = gridCanvas.getContext("2d");
 
-function resize() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
+function resizeGrid() {
+  gridCanvas.width = innerWidth;
+  gridCanvas.height = innerHeight;
 }
-resize();
-addEventListener("resize", resize);
+resizeGrid();
+addEventListener("resize", resizeGrid);
 
 let lastScroll = scrollY;
 let velocity = 0;
 
 function drawGrid(v) {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
+  gctx.clearRect(0,0,gridCanvas.width,gridCanvas.height);
   const spacing = 80;
   const shear = Math.max(Math.min(v * 0.015, 1.5), -1.5);
 
-  ctx.strokeStyle = "rgba(110,207,246,0.65)";
-  ctx.lineWidth = 1;
+  gctx.strokeStyle = "rgba(110,207,246,0.65)";
+  gctx.lineWidth = 1;
 
-  /* horizontal lines */
-  for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
-    ctx.beginPath();
-    for (let x = 0; x <= canvas.width; x += 20) {
-      ctx.lineTo(x + shear * (y - canvas.height/2), y);
+  for (let y = -spacing; y < gridCanvas.height + spacing; y += spacing) {
+    gctx.beginPath();
+    for (let x = 0; x <= gridCanvas.width; x += 20) {
+      gctx.lineTo(x + shear * (y - gridCanvas.height/2), y);
     }
-    ctx.stroke();
+    gctx.stroke();
   }
 
-  /* vertical lines */
-  for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
-    ctx.beginPath();
-    for (let y = 0; y <= canvas.height; y += 20) {
-      ctx.lineTo(x, y - shear * (x - canvas.width/2));
+  for (let x = -spacing; x < gridCanvas.width + spacing; x += spacing) {
+    gctx.beginPath();
+    for (let y = 0; y <= gridCanvas.height; y += 20) {
+      gctx.lineTo(x, y - shear * (x - gridCanvas.width/2));
     }
-    ctx.stroke();
+    gctx.stroke();
   }
 }
 
-function animate() {
+function animateGrid() {
   const delta = scrollY - lastScroll;
   lastScroll = scrollY;
-
   velocity += (delta - velocity) * 0.25;
   velocity *= 0.85;
-
   drawGrid(velocity);
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateGrid);
 }
-animate();
+animateGrid();
 </script>
 
 </body>
