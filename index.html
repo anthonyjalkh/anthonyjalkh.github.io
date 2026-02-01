@@ -108,6 +108,9 @@ ul, .book-list {
 </head>
 <body>
 
+  <!-- Background layers -->
+<canvas id="gridLayer"></canvas>
+
   <h1>Anthony Jalkh</h1>
   <p class="large-text"> Student in Fundamental Physics — Université Paris-Saclay</p>
 
@@ -194,7 +197,7 @@ ul, .book-list {
 
 <hr style="margin: 35px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.15);">
 
-<h2>📖 Interesting Reads :</h2>
+<h2>Interesting Reads :</h2>
 <ul style="list-style: none; padding-left: 15px; line-height: 1.7; font-size: 15px;">
   <li>
     <a href="http://arxiv.org/abs/2112.05619" target="_blank"
@@ -225,6 +228,83 @@ ul, .book-list {
 a:hover {
   color: #fff;
   text-shadow: 0 0 8px #6ECFF6;
+}
+
+  /* ===== Background grid ===== */
+#gridLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+/* Ensure content is above background layers */
+body {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Section reveal animation ===== */
+.section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Section header underline ===== */
+.section h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: #6ECFF6;
+  box-shadow: 0 0 8px rgba(110, 207, 246, 0.8);
+  transition: width 0.8s ease;
+}
+
+.section.visible h2::after {
+  width: 100%;
+}
+
+/* ===== Book category stagger ===== */
+.book-category {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.visible .book-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section.visible .book-category:nth-child(1) { transition-delay: 0.05s; }
+.section.visible .book-category:nth-child(2) { transition-delay: 0.12s; }
+.section.visible .book-category:nth-child(3) { transition-delay: 0.18s; }
+.section.visible .book-category:nth-child(4) { transition-delay: 0.25s; }
+
+/* ===== Reduce motion on mobile ===== */
+@media (max-width: 768px) {
+  .section,
+  .book-category {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>
 
@@ -530,5 +610,59 @@ body {
 }
 </style>
 
+<script>
+/* ===== Intersection Observer for section reveal ===== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
+
+/* ===== Coordinate grid with parallax ===== */
+const grid = document.getElementById('gridLayer');
+const ctx = grid.getContext('2d');
+
+function resizeGrid() {
+  grid.width = window.innerWidth;
+  grid.height = window.innerHeight;
+  drawGrid(0);
+}
+
+function drawGrid(offsetY) {
+  ctx.clearRect(0, 0, grid.width, grid.height);
+  ctx.strokeStyle = 'rgba(110, 207, 246, 0.15)';
+  ctx.lineWidth = 1;
+
+  const spacing = 80;
+
+  for (let x = 0; x < grid.width; x += spacing) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, grid.height);
+    ctx.stroke();
+  }
+
+  for (let y = -spacing; y < grid.height + spacing; y += spacing) {
+    ctx.beginPath();
+    ctx.moveTo(0, y + offsetY);
+    ctx.lineTo(grid.width, y + offsetY);
+    ctx.stroke();
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const offset = window.scrollY * 0.15;
+  drawGrid(offset);
+});
+
+window.addEventListener('resize', resizeGrid);
+resizeGrid();
+</script>
+  
 </body>
 </html>
