@@ -282,7 +282,14 @@ function drawGrid(beta) {
   const cx = grid.width/2;
   const cy = grid.height/2;
 
-  gctx.strokeStyle = "rgba(110,207,246,0.6)";
+  const b = Math.min(Math.abs(beta), 0.98);
+
+// interpolate color: blue → purple
+const r = Math.floor(120 + 80 * b);   // 120 → 200
+const g = Math.floor(180 - 60 * b);   // 180 → 120
+const bl = Math.floor(255 - 40 * b);  // 255 → 215
+
+gctx.strokeStyle = `rgba(${r},${g},${bl},0.6)`;
   gctx.lineWidth = 1;
 
   function boost(x,t){
