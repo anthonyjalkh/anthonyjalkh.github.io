@@ -252,7 +252,7 @@ Feel free to browse, and please don’t hesitate to contact me if you find any m
 const obs = new IntersectionObserver(e=>{
   e.forEach(x=>x.isIntersecting && x.target.classList.add("visible"));
 },{threshold:0.15});
-document.querySelectorAll(".section").forEach(s=>obs.observe(s));
+document.querySelectorAll("h2").forEach(h=>obs.observe(h));
 
 // ===== Lorentz Grid =====
 const grid = document.getElementById("relativityGrid");
