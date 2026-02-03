@@ -317,15 +317,22 @@ function animateGrid(){
   const d = scrollY - lastScroll;
   lastScroll = scrollY;
 
-  rapidity += d * 0.003;
-  rapidity = Math.max(Math.min(rapidity,2.2),-2.2);
-  smoothEta += (rapidity - smoothEta)*0.15;
+  // accumulate rapidity from scroll
+  rapidity += d * 0.004;
+
+  // wrap rapidity cyclically (Lorentz boosts compose in η)
+  const ETA_MAX = 3.0; // ~beta = 0.995, visually strong but safe
+  if (rapidity > ETA_MAX) rapidity -= 2 * ETA_MAX;
+  if (rapidity < -ETA_MAX) rapidity += 2 * ETA_MAX;
+
+  // smooth motion
+  smoothEta += (rapidity - smoothEta) * 0.12;
 
   const beta = Math.tanh(smoothEta);
   drawGrid(beta);
+
   requestAnimationFrame(animateGrid);
 }
-animateGrid();
 
 // ===== Spaceship =====
 const shipC = document.getElementById("spaceshipCanvas");
