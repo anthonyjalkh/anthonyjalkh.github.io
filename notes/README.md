@@ -1,4 +1,4 @@
-# M2 Astrophysics & Computation Notes
+# M2 notes
 
 Welcome to my technical notes and weekly curriculum logs.
 
