@@ -3,4 +3,4 @@
 Welcome to my technical notes and weekly curriculum logs.
 
 ### Recent Notes
-* [First Technical Post](first-post)
+* [This is a Test Post](first-post)
