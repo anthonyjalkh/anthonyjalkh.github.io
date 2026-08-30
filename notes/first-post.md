@@ -1,4 +1,4 @@
-# Gravitational Potential
+# Gravitational Potential (Test Post)
 
 Test post for LaTeX and code rendering:
 
