@@ -1,4 +1,4 @@
-# Gravitational Potential & Numerical Orbits
+# Gravitational Potential
 
 Test post for LaTeX and code rendering:
 
