@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anthony Jalkh | Astrophysics Notes</title>
+  <title>Anthony Jalkh | Astrophysics & Computation</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
   
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
@@ -19,27 +18,12 @@
   <div id="app">Loading...</div>
   
   <script>
-    window.$docsify = {
-      name: 'Anthony Jalkh | M2 Notes',
-      repo: 'https://github.com/anthonyjalkh/anthonyjalkh.github.io',
-      loadSidebar: true,
-      subMaxLevel: 2,
-      auto2top: true,
-      search: {
-        placeholder: 'Search notes...',
-        noData: 'No results found',
-        depth: 3
-      }
-    }
-  </script>
-  
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    window.$docsify = {       name: 'Anthony Jalkh \vert{} M2 Notes',       repo: 'https://github.com/anthonyjalkh/anthonyjalkh.github.io',       loadSidebar: true,       subMaxLevel: 2,       auto2top: true,       search: {         placeholder: 'Search notes...',         noData: 'No results found',         depth: 3       }     }   </script>      <!-- Docsify Core -->   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>    <!-- MathJax for LaTeX Rendering (Obsidian $$ compatible) -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+
+  <!-- Prism Syntax Highlighting -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-fortran.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
 </body>
 </html>
