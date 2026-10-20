@@ -1,6 +1,6 @@
-# M2 notes
+# Test notes
 
-Welcome to my technical notes and weekly curriculum logs.
+This is just a test to see if Git is properly working
 
 ### Recent Notes
 * [This is a Test Post](first-post)
