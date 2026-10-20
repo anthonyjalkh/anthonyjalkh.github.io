@@ -12,7 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <title>Anthony Jalkh — Physics and Mathematics</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Physics and mathematics notes by Anthony Jalkh.">
 <meta name="author" content="Anthony Jalkh">
 
@@ -31,8 +31,7 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   line-height: 1.6;
-  background: url('https://static.vecteezy.com/system/resources/previews/000/834/435/non_2x/beautiful-space-background-vector.jpg')
-    no-repeat center center fixed;
+  background: #05030f url('space-background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
   position: relative;
@@ -141,7 +140,7 @@ footer {
 <canvas id="spaceshipCanvas"></canvas>
 
 <h1>Anthony Jalkh</h1>
-  <p class="large-text">Cosmology and Mathematical Structures</p>
+  <p class="large-text">Cosmology, General Relativity, Hamiltonian Mechanics and Symplectic Structures</p>
 
   <!-- M2 Technical Blog Highlight Link -->
   <div style="margin: 20px 0 35px 0;">
@@ -176,22 +175,22 @@ footer {
   <h2>Unedited Informal Class Notes :</h2>
   <ul>
     <li>
-  <a href="[FRENCH] fourier_series_summary.pdf" target="_blank" class="pdf-link">[FRENCH] Série de Fourier — Résumé d’une page (PDF)</a><br>
+  <a href="[FRENCH] fourier_series_summary.pdf" target="_blank" class="pdf-link">[FRENCH] Série de Fourier — Résumé d’une page (PDF) - Niveau L2</a><br>
   Résumé des séries de Fourier réelles, incluant les définitions des coefficients, les cas pairs/impairs et la formule de Parseval.
 </li>
 
     <li>
-  <a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank" class="pdf-link">[FRENCH] Formes dérivées de la formule intégrale de Cauchy (PDF)</a><br>
+  <a href="[FRENCH] The_Cauchy_Integral_Formula_and_its_Derivatives.pdf" target="_blank" class="pdf-link">[FRENCH] Formes dérivées de la formule intégrale de Cauchy (PDF)  - Niveau L2</a><br>
       Dérivation, de deux façons, des formes dérivées de la formule intégrale de Cauchy. La deuxième méthode fait preuve de bien plus de rigueur.
 </li>
-
+<!--
      <li>
   <a href="Systèmes d'unités.pdf" target="_blank" class="pdf-link">[FRENCH] Systèmes d'unités en physique (PDF)</a><br>
       Récapitulation des diverses contraintes imposées par les principaux systèmes d'unités les plus omniprésents en physique nucléaire et en physique atomique.
 </li>
-
+-->
      <li>
-  <a href="The Power of the Variational Method.pdf" target="_blank" class="pdf-link"> The Power of the Variational Method (PDF)</a><br>
+  <a href="The Power of the Variational Method.pdf" target="_blank" class="pdf-link"> The Power of the Variational Method (PDF) - Niveau L3</a><br>
       A motivation of the usefulness of the Variational Method in Quantum Mechanics followed by a concise, yet not fully rigorous derivation of it, demonstrating how it provides an upper bound to the ground-state energy of a quantum system. Note that this is not fully rigorous since I implicitly use the orthonormality of the eigenbasis of the Hamiltonian observable H to alleviate heavy notations in the derivation, especially when dealing with double summations. This ensures the paper is as streamlined as possible, allowing the reader to focus on the underlying mechanism of the Variational Method without being distracted by the algebraic manipulations that are necessary to deal with multiple summation indices.
 </li>
 
@@ -208,8 +207,10 @@ footer {
       Mathematics
     </h3>
     <ul style="margin-left: 22px; list-style-type: '• '; padding-left: 0;">
-      <li><em>Contemporary Abstract Algebra</em> — <strong>Joseph Gallian</strong></li>
-      <li><em>Topology</em> — <strong> James Munkres</strong></li>
+     <!-- <li><em>Contemporary Abstract Algebra</em> — <strong>Joseph Gallian</strong></li>
+      <li><em>Topology</em> — <strong> James Munkres</strong></li> -->
+
+        <li><em>Topology from the Differentiable Viewpoint </em> — <strong> John W. Milnor</strong></li>
     </ul>
   </div>
 
@@ -218,8 +219,13 @@ footer {
       Physics
     </h3>
     <ul style="margin-left: 22px; list-style-type: '• '; padding-left: 0;">
-      <li><em>Quantum Field Theory for the Gifted Amateur</em> — <strong>Stephen Blundell and Tom Lancaster</strong></li>
-      <li><em>Modern Quantum Mechanics</em> — <strong>J. J. Sakurai and Jim Napolitano</strong></li>
+      <!-- <li><em>Quantum Field Theory for the Gifted Amateur</em> — <strong>Stephen Blundell and Tom Lancaster</strong></li>
+      <li><em>Modern Quantum Mechanics</em> — <strong>J. J. Sakurai and Jim Napolitano</strong></li> -->
+      <li><a href="https://arxiv.org/abs/gr-qc/0703035" target="_blank">3+1 Formalism and Bases of Numerical Relativity</a> — Éric Gourgoulhon <em> (in progress)</em></li>
+<li><a href="https://arxiv.org/abs/2210.10103" target="_blank">Introduction to the ADM Formalism</a> — Alejandro Corichi and Dario Núñez (arXiv:2210.10103)</li>
+      <li><a href="https://arxiv.org/abs/gr-qc/0405109" target="_blank">The Dynamics of General Relativity</a> — R. Arnowitt, S. Deser and C. W. Misner</li>
+<li><a href="https://arxiv.org/abs/1210.2745" target="_blank">The classical mechanics of non-conservative systems</a> — Chad R. Galley (arXiv:1210.2745) <em> (in progress)</em></li>
+<li><a href="https://arxiv.org/abs/1412.3082" target="_blank">The principle of stationary nonconservative action for classical mechanics and field theories</a> — Chad R. Galley, David Tsang and Leo C. Stein (arXiv:1412.3082)</li>
     </ul>
   </div>
 </div>
@@ -230,6 +236,9 @@ footer {
 
 <h2>Interesting Papers :</h2>
 <ul style="list-style: none; padding-left: 15px; line-height: 1.7; font-size: 15px;">
+
+  <li><a href="https://arxiv.org/abs/1210.3363" target="_blank">Why does the Jeans Swindle work?</a> — M. Falco, S. H. Hansen, R. Wojtak and G. A. Mamon</li>
+  
   <li>
     <a href="http://arxiv.org/abs/2112.05619" target="_blank"
     style="color: #6ECFF6; text-decoration: none; transition: 0.2s ease;">
@@ -240,6 +249,8 @@ footer {
     style="color: #6ECFF6; text-decoration: none; transition: 0.2s ease;">
     The Unreasonable Effectiveness of Mathematics in the Natural Sciences</a> — Eugene Wigner
   </li>
+
+  <li><a href="https://arxiv.org/abs/1605.03142" target="_blank">Self-Modification of Policy and Utility Function in Rational Agents</a> — Tom Everitt, Daniel Filan, Mayank Daswani and Marcus Hutter</li>
 
    <li>
     <a href="https://www.cs.uaf.edu/~bueler/M611heaviside.pdf" target="_blank"
